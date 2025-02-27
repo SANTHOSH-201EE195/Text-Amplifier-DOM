@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Amplifier</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #1e1e2e; /* Dark background */
+            color: #f8f8f8; /* Light text */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Input Box - Straight Line Typing */
+        input {
+            width: 70%;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #7f5af0;
+            border-radius: 8px;
+            outline: none;
+            text-align: left;
+            background: #2d2d44;
+            color: white;
+            white-space: nowrap; /* Ensures text stays in a straight line */
+            overflow-x: auto; /* Allows horizontal scrolling if text is long */
+            display: block;
+        }
+
+        /* Output - Paragraph Formatted in <h1> */
+        h1#result {
+            margin-top: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: justify;
+            width: 60%;
+            line-height: 1.8; /* Proper paragraph spacing */
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            word-wrap: break-word; /* Ensures proper text wrapping */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Text Amplifier</h2>
+    <input id="userVal" onkeyup="amp();" placeholder="Type your text here...">
+    <h1 id="result"></h1>
+
+    <script>
+        function amp() {
+            let userVal = document.getElementById("userVal").value;
+            let result = document.getElementById("result");
+
+            // Replace new lines with <br> for paragraph formatting
+            result.innerHTML = userVal.replace(/\n/g, "<br>");
+        }
+    </script>
+
+</body>
+</html>
